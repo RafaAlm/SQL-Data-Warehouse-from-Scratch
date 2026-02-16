@@ -1,68 +1,63 @@
-# SQL-Data-Warehouse-from-Scratch
+#  SQL Data Warehouse from Scratch
+### *End-to-End Data Engineering Pipeline*
 
-Project Overview
-This project demonstrates the complete lifecycle of building a SQL Data Warehouse. It follows a modular architecture to transform raw data from multiple sources (CRM and ERP systems) into a polished Star Schema optimized for business intelligence and analytics.
+---
 
-Data Architecture
-The project is organized into three logical layers (Medallion Architecture) to ensure data quality and traceability:
+## 📝 Project Overview
+This project demonstrates the complete lifecycle of building a robust **SQL Data Warehouse**. It implements a modular architecture to transform raw data from disparate sources (CRM and ERP systems) into a polished **Star Schema** optimized for high-performance business intelligence and analytics.
 
-Bronze Layer (Source): Raw data ingestion from CRM and ERP systems.
+---
 
-Silver Layer (Integration): Data cleansing, standardization, and deduplication.
+## 📐 Data Architecture
+The project follows the **Medallion Architecture** to ensure data quality, traceability, and a clear separation of concerns:
 
-Gold Layer (Presentation): Final Dimensional Modeling (Star Schema) for business consumption.
+| Layer | Name | Purpose |
+| :--- | :--- | :--- |
+| 🥉 | **Bronze** | Raw data ingestion from CRM and ERP systems (Staging). |
+| 🥈 | **Silver** | Data cleansing, standardization, and deduplication. |
+| 🥇 | **Gold** | Final Dimensional Modeling (**Star Schema**) for business consumption. |
 
-🛠️ Tech Stack & Concepts
-Database: SQL Server / PostgreSQL (adjust as needed)
+---
 
-Modeling: Star Schema (Facts & Dimensions)
+## 🛠️ Tech Stack & Concepts
+* **Database:** SQL Server / PostgreSQL (Core Engine)
+* **Modeling:** Star Schema (Fact & Dimension Tables)
+* **Engineering:** ETL/ELT Pipelines, Stored Procedures, Data Mapping
+* **Documentation:** Data Catalog, Flow Diagrams, and Naming Conventions
 
-Engineering: ETL/ELT, Stored Procedures, Data Mapping
+---
 
-Documentation: Data Catalog, Data Flow Diagrams, and Naming Conventions
+## 🚀 Implementation Roadmap
 
-🚀 Implementation Roadmap
-1. Project Initialization
-Defined naming conventions for schemas, tables, and columns.
+### 1️⃣ Project Initialization
+* Defined professional **Naming Conventions** for schemas, tables, and columns.
+* Established a **Git-based workflow** for database version control.
+* Environment setup including Database and Schema structures.
 
-Established a Git-based workflow for database version control.
+### 2️⃣ Bronze Layer (Staging)
+* Detailed analysis of source systems (CRM & ERP).
+* Developed **DDL scripts** for landing tables to mirror source data.
+* Built **Stored Procedures** to automate the batch loading of raw data.
 
-Setup of the core Database and Schemas environment.
+### 3️⃣ Silver Layer (Cleansing & Transformation)
+* **Data Profiling:** Identified inconsistencies, nulls, and duplicates.
+* **Entity Cleansing:** Refined `Customers`, `Products`, and `Sales Details`.
+* **Standardization:** Unified date formats and currency units using SQL transformation scripts.
 
-2. Bronze Layer (Staging)
-Analyzed source systems (CRM/ERP).
+### 4️⃣ Gold Layer (Dimensional Modeling)
+* Implemented a **Star Schema** to simplify query logic and improve performance.
+* **Dimensions:** Created `dim_customers` and `dim_products` by merging data across systems.
+* **Fact Table:** Built `fact_sales` to store business metrics and transactional keys.
+* **Data Catalog:** Comprehensive documentation for end-user reference.
 
-Developed DDL scripts for landing tables.
+---
 
-Built Stored Procedures to automate the loading of raw data.
-
-3. Silver Layer (Cleansing & Transformation)
-Performed data profiling to identify inconsistencies.
-
-Cleansed key entities: Customers, Products, and Sales Details.
-
-Handled data quality issues (nulls, formatting, and duplicates) using SQL transformation scripts.
-
-4. Gold Layer (Dimensional Modeling)
-Implemented a Star Schema to simplify query logic.
-
-Dimensions: Created dim_customers and dim_products by merging CRM and ERP data.
-
-Fact Table: Built fact_sales to store transactional metrics.
-
-Created a Data Catalog for business user reference.
-
-📂 Project Structure
-Plaintext
+## 📂 Project Structure
+```text
+.
 ├── scripts/
 │   ├── bronze/         # DDL and Load scripts for Raw Data
-│   ├── silver/         # Cleaning and Transformation scripts
-│   └── gold/           # Fact and Dimension modeling
-├── docs/               # Data Flow Diagrams and Architecture
-└── README.md
-📈 Key Insights & Results
-Integrated Data: Unified customer and product data from siloed CRM and ERP systems.
-
-Performance: Optimized the Gold Layer for sub-second analytical queries.
-
-Automation: Full pipeline execution via Stored Procedures.
+│   ├── silver/         # Cleaning and Transformation logic
+│   └── gold/           # Fact and Dimension modeling (Star Schema)
+├── docs/               # Architecture Diagrams and Data Flow
+└── README.md           # Project documentation
